@@ -12,14 +12,16 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
 
-    public ClientService(ClientRepository clientRepository){
+    public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
-    public Client getById(Long id){
+
+    public Client getById(Long id) {
         return clientRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Client not found"));
 
     }
+
     @Transactional
     public Client create(String firstName, String lastName, String email) {
         if (clientRepository.existsByEmail(email)) {

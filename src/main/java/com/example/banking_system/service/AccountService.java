@@ -117,7 +117,8 @@ public class AccountService {
         );
         transactionRepository.save(transaction);
     }
-    public List<Transaction>getAccountHistory(Long accountId){
+
+    public List<Transaction> getAccountHistory(Long accountId) {
 
         accountRepository.findById(accountId)
                 .orElseThrow(() -> new IllegalArgumentException("Account not found"));

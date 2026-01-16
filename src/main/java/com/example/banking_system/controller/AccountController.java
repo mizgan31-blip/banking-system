@@ -2,9 +2,13 @@ package com.example.banking_system.controller;
 
 import com.example.banking_system.domain.Account;
 import com.example.banking_system.domain.Transaction;
+import com.example.banking_system.dto.AmountRequest;
+import com.example.banking_system.dto.OpenAccountRequest;
 import com.example.banking_system.service.AccountService;
+import com.example.banking_system.dto.TransferRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -18,7 +22,6 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    //Открыть счет
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Account openAccount(@RequestBody OpenAccountRequest request) {
@@ -28,46 +31,49 @@ public class AccountController {
 
         );
     }
-    //Получить счет по Id
+
     @GetMapping("/{id}")
-    public Account getById(@PathVariable Long id){
+    public Account getById(@PathVariable Long id) {
         return accountService.getById(id);
     }
-    //Все счета клиента
+
     @GetMapping("/client/{clientId}")
-    public List<Account>getClientAccounts(@PathVariable Long clientId){
+    public List<Account> getClientAccounts(@PathVariable Long clientId) {
         return accountService.getClientAccounts(clientId);
     }
-    //Заблокировать счет
+
     @PutMapping("/{id}/block")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void block(@PathVariable Long id){
+    public void block(@PathVariable Long id) {
         accountService.blockAccount(id);
     }
+
     @GetMapping("/{id}/transactions")
-    public List<Transaction> getAccountHistory(@PathVariable Long id){
+    public List<Transaction> getAccountHistory(@PathVariable Long id) {
         return accountService.getAccountHistory(id);
     }
-    //Пополнить счет
+
     @PostMapping("/{id}/deposit")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public  void deposit(@PathVariable Long id,
-                         @RequestBody AmountRequest request){
+    public void deposit(@PathVariable Long id,
+                        @RequestBody AmountRequest request) {
         accountService.deposit(id, request.getAmount());
 
     }
+
     @PostMapping("/{id}/withdraw")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void withdraw(@PathVariable Long id,
-                         @RequestBody AmountRequest request){
+                         @RequestBody AmountRequest request) {
         accountService.withdraw(id, request.getAmount());
     }
+
     @PostMapping("/{id}/trasfer")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void transfer(@PathVariable Long id,
-                         @RequestBody TransferRequest request){
+                         @RequestBody TransferRequest request) {
         accountService.transfer(id,
-        request.getTargetAccountId(),
+                request.getTargetAccountId(),
                 request.getAmount()
         );
 
