@@ -49,21 +49,27 @@ public class Transaction {
         this.targetAccount = targetAccount;
         this.createdAt = LocalDateTime.now();
     }
-    public Long getId(){
+
+    public Long getId() {
         return id;
     }
-    public TransactionType getType(){
+
+    public TransactionType getType() {
         return type;
     }
-    public BigDecimal getAmount(){
+
+    public BigDecimal getAmount() {
         return amount;
     }
-    public Account getAccount(){
+
+    public Account getAccount() {
         return account;
     }
-    public Account getTargetAccount(){
+
+    public Account getTargetAccount() {
         return targetAccount;
     }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }

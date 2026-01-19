@@ -2,6 +2,7 @@ package com.example.banking_system.domain;
 
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,7 +14,6 @@ import java.time.LocalDateTime;
 )
 
 public class Client {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,11 +31,9 @@ public class Client {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    // --- JPA ---
     protected Client() {
     }
 
-    // --- Конструктор ---
     public Client(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -43,7 +41,6 @@ public class Client {
         this.createdAt = LocalDateTime.now();
     }
 
-    // --- Getters ---
     public Long getId() {
         return id;
     }
