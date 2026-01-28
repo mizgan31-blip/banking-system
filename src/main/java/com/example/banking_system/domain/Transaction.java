@@ -15,8 +15,9 @@ public class Transaction {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "transaction_type", nullable = false)
     private TransactionType type;
+
 
     @Column(nullable = false)
     private BigDecimal amount;

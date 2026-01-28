@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: banking-system
+      changes:
+        - createTable:
+            tableName: accounts
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: client_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: balance
+                  type: DECIMAL(19,2)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: account_type
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: status
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: account_number
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false

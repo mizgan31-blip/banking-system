@@ -52,6 +52,7 @@ public class Account {
         this.accountNumber = accountNumber;
         this.balance = BigDecimal.ZERO;
         this.createdAt = LocalDateTime.now();
+        this.status = AccountStatus.ACTIVE;
     }
 
     public Long getId() {

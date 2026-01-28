@@ -13,4 +13,13 @@ public class OpenAccountRequest {
     public AccountType getAccountType() {
         return accountType;
     }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
+    }
+
 }
