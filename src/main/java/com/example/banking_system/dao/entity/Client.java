@@ -1,4 +1,4 @@
-package com.example.banking_system.domain;
+package com.example.banking_system.dao.entity;
 
 
 import jakarta.persistence.*;

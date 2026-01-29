@@ -1,6 +1,6 @@
 package com.example.banking_system.controller;
 
-import com.example.banking_system.domain.Client;
+import com.example.banking_system.dao.entity.Client;
 import com.example.banking_system.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

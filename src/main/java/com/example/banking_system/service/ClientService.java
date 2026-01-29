@@ -1,7 +1,7 @@
 package com.example.banking_system.service;
 
-import com.example.banking_system.domain.Client;
-import com.example.banking_system.repository.ClientRepository;
+import com.example.banking_system.dao.entity.Client;
+import com.example.banking_system.dao.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

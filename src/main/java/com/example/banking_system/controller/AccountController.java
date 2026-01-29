@@ -1,7 +1,7 @@
 package com.example.banking_system.controller;
 
-import com.example.banking_system.domain.Account;
-import com.example.banking_system.domain.Transaction;
+import com.example.banking_system.dao.entity.Account;
+import com.example.banking_system.dao.entity.Transaction;
 import com.example.banking_system.dto.AmountRequest;
 import com.example.banking_system.dto.OpenAccountRequest;
 import com.example.banking_system.service.AccountService;

@@ -1,8 +1,8 @@
-package com.example.banking_system.domain;
+package com.example.banking_system.dao.entity;
 
 import jakarta.persistence.*;
 
-import com.example.banking_system.domain.exception.InvalidAmountException;
+import com.example.banking_system.exception.InvalidAmountException;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

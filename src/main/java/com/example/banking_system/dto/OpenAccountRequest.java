@@ -1,6 +1,6 @@
 package com.example.banking_system.dto;
 
-import com.example.banking_system.domain.AccountType;
+import com.example.banking_system.dao.entity.AccountType;
 
 public class OpenAccountRequest {
     private Long clientId;

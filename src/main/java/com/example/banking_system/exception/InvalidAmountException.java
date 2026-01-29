@@ -1,4 +1,4 @@
-package com.example.banking_system.domain.exception;
+package com.example.banking_system.exception;
 
 public class InvalidAmountException extends RuntimeException{
 

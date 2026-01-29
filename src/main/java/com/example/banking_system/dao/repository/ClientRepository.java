@@ -1,6 +1,6 @@
-package com.example.banking_system.repository;
+package com.example.banking_system.dao.repository;
 
-import com.example.banking_system.domain.Client;
+import com.example.banking_system.dao.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

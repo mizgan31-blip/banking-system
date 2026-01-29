@@ -1,6 +1,6 @@
-package com.example.banking_system.controller.exception;
+package com.example.banking_system.exception;
 
-import com.example.banking_system.domain.exception.InvalidAmountException;
+import com.example.banking_system.exception.InvalidAmountException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

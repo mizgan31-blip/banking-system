@@ -1,11 +1,11 @@
 package com.example.banking_system.service;
 
-import com.example.banking_system.domain.*;
-import com.example.banking_system.repository.AccountRepository;
-import com.example.banking_system.repository.ClientRepository;
+import com.example.banking_system.dao.entity.*;
+import com.example.banking_system.dao.repository.AccountRepository;
+import com.example.banking_system.dao.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.banking_system.repository.TransactionRepository;
+import com.example.banking_system.dao.repository.TransactionRepository;
 
 import java.math.BigDecimal;
 import java.util.List;

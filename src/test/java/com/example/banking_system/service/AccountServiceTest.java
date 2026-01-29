@@ -1,10 +1,9 @@
 package com.example.banking_system.service;
 
-import com.example.banking_system.domain.*;
-import com.example.banking_system.repository.AccountRepository;
-import com.example.banking_system.repository.ClientRepository;
-import com.example.banking_system.repository.TransactionRepository;
-import com.example.banking_system.service.AccountService;
+import com.example.banking_system.dao.entity.*;
+import com.example.banking_system.dao.repository.AccountRepository;
+import com.example.banking_system.dao.repository.ClientRepository;
+import com.example.banking_system.dao.repository.TransactionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.util.ReflectionTestUtils;
