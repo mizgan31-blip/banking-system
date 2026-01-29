@@ -1,9 +1,14 @@
 package com.example.banking_system.dto;
 
 import com.example.banking_system.dao.entity.AccountType;
+import jakarta.validation.constraints.NotNull;
 
 public class OpenAccountRequest {
+
+    @NotNull
     private Long clientId;
+
+    @NotNull
     private AccountType accountType;
 
     public Long getClientId() {
@@ -13,13 +18,4 @@ public class OpenAccountRequest {
     public AccountType getAccountType() {
         return accountType;
     }
-
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
-    }
-
-    public void setAccountType(AccountType accountType) {
-        this.accountType = accountType;
-    }
-
 }

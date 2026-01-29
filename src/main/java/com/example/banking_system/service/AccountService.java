@@ -41,10 +41,9 @@ public class AccountService {
         if (account.getStatus() == AccountStatus.BLOCKED) {
             throw new IllegalArgumentException("Account is blocked");
         }
-        //обновляем баланс
+
         account.deposit(amount);
 
-        //создаем транзакцию
         Transaction transaction = new Transaction(
                 TransactionType.DEPOSIT,
                 amount,
@@ -127,19 +126,15 @@ public class AccountService {
                 .findByAccountIdOrderByCreatedAtDesc(accountId);
     }
 
-
-    //Получить счет по Id
     public Account getById(Long id) {
         return accountRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Account not found"));
     }
 
-    //Счет клиента
     public List<Account> getClientAccounts(Long clientId) {
         return accountRepository.findByClientId(clientId);
     }
 
-    //Открыть счет
     @Transactional
     public Account openAccount(Long clientId, AccountType accountType) {
         Client client = clientRepository.findById(clientId)
@@ -151,7 +146,6 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
-    //Заблокировать счет
     @Transactional
     public void blockAccount(Long accountId) {
         Account account = getById(accountId);
@@ -164,7 +158,6 @@ public class AccountService {
         accountRepository.save(account);
     }
 
-    //Генерация  номера счета
     private String generateAccountNumber() {
         return UUID.randomUUID().toString();
     }

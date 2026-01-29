@@ -4,8 +4,9 @@ import com.example.banking_system.dao.entity.Account;
 import com.example.banking_system.dao.entity.Transaction;
 import com.example.banking_system.dto.AmountRequest;
 import com.example.banking_system.dto.OpenAccountRequest;
-import com.example.banking_system.service.AccountService;
 import com.example.banking_system.dto.TransferRequest;
+import com.example.banking_system.service.AccountService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/accounts")
-
 public class AccountController {
 
     private final AccountService accountService;
@@ -24,11 +24,10 @@ public class AccountController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Account openAccount(@RequestBody OpenAccountRequest request) {
+    public Account openAccount(@Valid @RequestBody OpenAccountRequest request) {
         return accountService.openAccount(
                 request.getClientId(),
                 request.getAccountType()
-
         );
     }
 
@@ -55,27 +54,32 @@ public class AccountController {
 
     @PostMapping("/{id}/deposit")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deposit(@PathVariable Long id,
-                        @RequestBody AmountRequest request) {
+    public void deposit(
+            @PathVariable Long id,
+            @Valid @RequestBody AmountRequest request
+    ) {
         accountService.deposit(id, request.getAmount());
-
     }
 
     @PostMapping("/{id}/withdraw")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void withdraw(@PathVariable Long id,
-                         @RequestBody AmountRequest request) {
+    public void withdraw(
+            @PathVariable Long id,
+            @Valid @RequestBody AmountRequest request
+    ) {
         accountService.withdraw(id, request.getAmount());
     }
 
-    @PostMapping("/{id}/trasfer")
+    @PostMapping("/{id}/transfer")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void transfer(@PathVariable Long id,
-                         @RequestBody TransferRequest request) {
-        accountService.transfer(id,
+    public void transfer(
+            @PathVariable Long id,
+            @Valid @RequestBody TransferRequest request
+    ) {
+        accountService.transfer(
+                id,
                 request.getTargetAccountId(),
                 request.getAmount()
         );
-
     }
 }
