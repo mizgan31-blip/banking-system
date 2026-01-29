@@ -3,8 +3,10 @@ package com.example.banking_system.domain;
 import jakarta.persistence.*;
 
 import com.example.banking_system.domain.exception.InvalidAmountException;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(
@@ -22,6 +24,7 @@ public class Account {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "client_id", nullable = false)
+    @JsonIgnore
     private Client client;
 
     @Column(nullable = false)
@@ -40,7 +43,6 @@ public class Account {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-
 
     protected Account() {
 
