@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003
+      author: mizgan31
+      changes:
+        - addColumn:
+            tableName: transactions
+            columns:
+              - column:
+                  name: target_account_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
