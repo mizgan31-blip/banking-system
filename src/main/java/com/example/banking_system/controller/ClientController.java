@@ -5,6 +5,9 @@ import com.example.banking_system.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+
 @RestController
 @RequestMapping("/api/clients")
 
@@ -25,4 +28,14 @@ public class ClientController {
         );
 
     }
+    @GetMapping("/{id}")
+    public Client getById(@PathVariable Long id) {
+        return clientService.getById(id);
+    }
+    @GetMapping
+    public List<Client> getAll() {
+        return clientService.getAll();
+    }
+
+
 }

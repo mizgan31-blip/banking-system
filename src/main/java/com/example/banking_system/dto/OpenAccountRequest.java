@@ -8,14 +8,12 @@ public class OpenAccountRequest {
     @NotNull
     private Long clientId;
 
-    @NotNull
     private AccountType accountType;
 
-    public Long getClientId() {
-        return clientId;
-    }
+    public Long getClientId() { return clientId; }
+    public void setClientId(Long clientId) { this.clientId = clientId; }
 
-    public AccountType getAccountType() {
-        return accountType;
-    }
+    public AccountType getAccountType() { return accountType; }
+    public void setAccountType(AccountType accountType) { this.accountType = accountType; }
 }
+

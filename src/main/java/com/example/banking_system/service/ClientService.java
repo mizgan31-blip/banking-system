@@ -24,6 +24,7 @@ public class ClientService {
     }
     public List<Client> getAll() {
         return clientRepository.findAll();
+
     }
 
     @Transactional
@@ -42,5 +43,6 @@ public class ClientService {
         }
         clientRepository.deleteById(id);
     }
+
 
 }
