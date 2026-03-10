@@ -1,12 +1,16 @@
 package com.example.banking_system.service;
 
-import com.example.banking_system.dao.entity.*;
+import com.example.banking_system.dao.entity.Account;
+import com.example.banking_system.dao.entity.AccountStatus;
+import com.example.banking_system.dao.entity.AccountType;
+import com.example.banking_system.dao.entity.Client;
 import com.example.banking_system.dao.repository.AccountRepository;
 import com.example.banking_system.dao.repository.ClientRepository;
 import com.example.banking_system.dao.repository.TransactionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -61,5 +65,9 @@ public class AccountService {
 
     private String generateAccountNumber() {
         return UUID.randomUUID().toString();
+    }
+
+
+    public void deposit(Long accountId, BigDecimal amount) {
     }
 }

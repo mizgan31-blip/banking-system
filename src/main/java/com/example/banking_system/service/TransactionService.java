@@ -1,14 +1,19 @@
 package com.example.banking_system.service;
 
-import com.example.banking_system.dao.entity.*;
+import com.example.banking_system.dao.entity.Account;
+import com.example.banking_system.dao.entity.AccountStatus;
+import com.example.banking_system.dao.entity.Transaction;
+import com.example.banking_system.dao.entity.TransactionType;
 import com.example.banking_system.dao.repository.AccountRepository;
 import com.example.banking_system.dao.repository.TransactionRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Slf4j
 @Service
 @Transactional(readOnly = true)
 public class TransactionService {
@@ -24,6 +29,7 @@ public class TransactionService {
 
     @Transactional
     public void deposit(Long accountId, BigDecimal amount) {
+        log.info("Пополнение счета:accountId{}, amount{}", accountId, amount);
         validateAmount(amount);
 
         Account account = getActiveAccount(accountId);
@@ -36,6 +42,7 @@ public class TransactionService {
 
     @Transactional
     public void withdraw(Long accountId, BigDecimal amount) {
+        log.info("Снятие средств:accountId{}, amount{}", accountId, amount);
         validateAmount(amount);
 
         Account account = getActiveAccount(accountId);
@@ -53,6 +60,7 @@ public class TransactionService {
 
     @Transactional
     public void transfer(Long fromAccountId, Long toAccountId, BigDecimal amount) {
+        log.info("Перевод средств:from{},to{], amount{}", fromAccountId, toAccountId, amount);
         validateAmount(amount);
 
         if (fromAccountId.equals(toAccountId)) {
@@ -75,6 +83,7 @@ public class TransactionService {
     }
 
     public List<Transaction> getAccountHistory(Long accountId) {
+        log.info("Запрос историй операций:accountId{}", accountId);
         accountRepository.findById(accountId)
                 .orElseThrow(() -> new IllegalArgumentException("Account not found"));
 
